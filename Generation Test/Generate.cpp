@@ -30,12 +30,19 @@ bool generation::start(int selectedDiff)
 	platform* current = startPlat;
 	platform* newPlat = nullptr;
 	for (int i = 0; i < this->elements; i++) {
-		dxPos = stepMin + (rand() % (stepMax - stepMin + 1));
-		dyPos = (rand() % (2 * stepMax + 1)) - stepMax;
-		dzPos = (rand() % (2 * stepMax + 1)) - stepMax;
+		
+		dzPos = (rand() % (2 * stepMax) )- stepMax - 1;
+		dzPos = fmin(dzPos, stepMaxZ);
+		zPos += dzPos;
+		// Using the height the new platform to determine max distance
+		stepMax = pl->getJumpDistance(zPos);
+		stepMin = pl->getJumpDistance(zPos) / 10 * selectedDiff;
+		// Generating x and y pos
+		dxPos = (rand() % (stepMax - stepMin + 1));
+		dyPos = (rand() % (2 * stepMax)) - stepMax - 1;
 		xPos += dxPos;
 		yPos += dyPos;
-		zPos += dzPos;
+		//Checking if jump is possible
 		if (this->pl->isJumpPossible({xPos, yPos, zPos}) ){
 			newPlat = new platform({ xPos, yPos, zPos }, 0, 1);
 			pl->moveto(newPlat->getPos());
