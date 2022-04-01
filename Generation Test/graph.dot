@@ -1,0 +1,106 @@
+digraph {
+Platform_0 [
+label = P_0
+pos = "0,0!"
+]
+Platform_1 [
+label = P_1
+pos = "-40,80!"
+]
+Platform_0 -> Platform_1
+Platform_2 [
+label = P_2
+pos = "30,210!"
+]
+Platform_1 -> Platform_2
+Platform_3 [
+label = P_3
+pos = "-10,300!"
+]
+Platform_2 -> Platform_3
+Platform_4 [
+label = P_4
+pos = "0,410!"
+]
+Platform_3 -> Platform_4
+Platform_5 [
+label = P_5
+pos = "-60,510!"
+]
+Platform_4 -> Platform_5
+Platform_6 [
+label = P_6
+pos = "40,620!"
+]
+Platform_5 -> Platform_6
+Platform_7 [
+label = P_7
+pos = "30,740!"
+]
+Platform_6 -> Platform_7
+Platform_8 [
+label = P_8
+pos = "80,860!"
+]
+Platform_7 -> Platform_8
+Platform_9 [
+label = P_9
+pos = "170,950!"
+]
+Platform_8 -> Platform_9
+Platform_10 [
+label = P_10
+pos = "210,1050!"
+]
+Platform_9 -> Platform_10
+Platform_11 [
+label = P_11
+pos = "220,1160!"
+]
+Platform_10 -> Platform_11
+Platform_12 [
+label = P_12
+pos = "90,1270!"
+]
+Platform_11 -> Platform_12
+Platform_13 [
+label = P_13
+pos = "0,1390!"
+]
+Platform_12 -> Platform_13
+Platform_14 [
+label = P_14
+pos = "130,1480!"
+]
+Platform_13 -> Platform_14
+Platform_15 [
+label = P_15
+pos = "130,1580!"
+]
+Platform_14 -> Platform_15
+Platform_16 [
+label = P_16
+pos = "70,1680!"
+]
+Platform_15 -> Platform_16
+Platform_17 [
+label = P_17
+pos = "0,1800!"
+]
+Platform_16 -> Platform_17
+Platform_18 [
+label = P_18
+pos = "-70,1940!"
+]
+Platform_17 -> Platform_18
+Platform_19 [
+label = P_19
+pos = "-160,2070!"
+]
+Platform_18 -> Platform_19
+Platform_20 [
+label = P_20
+pos = "-210,2160!"
+]
+Platform_19 -> Platform_20
+}

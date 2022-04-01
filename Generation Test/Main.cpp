@@ -1,5 +1,8 @@
 #include <iostream>
+#include <fstream>
 #include "Generate.h"
+
+
 int main()
 {
     int seed = time(0);
@@ -11,9 +14,32 @@ int main()
     levelGen.start(1);
     std::vector<platform*> platforms = levelGen.getPlatforms();
 
+    std::ofstream out("graph.dot");
+    out << "digraph {\n" ;
+    int scale = 10; 
+    int abs_X = 0;
+    int abs_Y = 0;
     for (int i = 0; i < platforms.size(); i++) {
         std::cout << i << " platform.\nXPos: " << platforms[i]->getPos().at(0) << " YPos: " << platforms[i]->getPos().at(1) << " ZPos: " << platforms[i]->getPos().at(2) << "\n";
+        //abs_X += platforms[i]->getPos().at(0) ;
+        //abs_Y += platforms[i]->getPos().at(1) ;
+
+        abs_X = platforms[i]->getPos().at(1);
+        abs_Y = platforms[i]->getPos().at(0);
+
+        out << "Platform_"<< i <<" [\n";
+        out << "label = P_"<< i << "\n";
+        //out << "pos = \""<< platforms[i]->getPos().at(0) * scale <<"," << platforms[i]->getPos().at(1) * scale <<"!\"\n";
+        //out << "pos = \""<< abs_X + scale <<"," << abs_Y + scale <<"!\"\n";
+        out << "pos = \""<< abs_X * scale <<"," << abs_Y * scale <<"!\"\n";
+        out << "]\n";
+        if (i != 0) {
+            out << "Platform_" << i-1 << " -> " << "Platform_" << i << "\n";
+        }
     }
+    out << "}\n";
+
+    out.close();
 
     delete pl;
     return 0;

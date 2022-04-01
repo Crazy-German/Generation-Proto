@@ -15,6 +15,16 @@ generation::~generation()
 	anchors.clear();
 }
 
+struct Vector2
+{
+	float x;
+	float y;
+	float Magnitude()
+	{
+		return sqrt(x * x + y * y);
+	}
+};
+
 bool generation::start(int selectedDiff)
 {
 	srand(this->seed);
@@ -25,18 +35,27 @@ bool generation::start(int selectedDiff)
 	float dyPos = 0; 
 	float dzPos = 0;
 	int stepMax = pl->getJumpDistance();
-	int stepMin = pl->getJumpDistance() / 10 * selectedDiff;
+	float stepMin = pl->getJumpDistance() / 2 * selectedDiff;
 	int stepMaxZ = pl->jumpHeight();
 	platform* current = startPlat;
 	platform* newPlat = nullptr;
 	for (int i = 0; i < this->elements; i++) {
-		dxPos = stepMin + (rand() % (stepMax - stepMin + 1));
+		dxPos = stepMin + (rand() % (stepMax - (int)stepMin + 1));
 		dyPos = (rand() % (2 * stepMax + 1)) - stepMax;
 		dzPos = (rand() % (2 * stepMax + 1)) - stepMax;
+			
+		if (sqrt(dxPos * dxPos + dyPos * dyPos) > stepMin  && sqrt(dxPos * dxPos + dyPos * dyPos) < stepMax) {
+
+
+		}
+
 		xPos += dxPos;
 		yPos += dyPos;
 		zPos += dzPos;
-		if (this->pl->isJumpPossible({xPos, yPos, zPos}) ){
+		if (this->pl->isJumpPossible({xPos, yPos, zPos}) &&
+			sqrt(dxPos * dxPos + dyPos * dyPos) > stepMin && 
+			sqrt(dxPos * dxPos + dyPos * dyPos) < stepMax)
+		{
 			newPlat = new platform({ xPos, yPos, zPos }, 0, 1);
 			pl->moveto(newPlat->getPos());
 			current->next = newPlat;
