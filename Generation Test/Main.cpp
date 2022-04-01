@@ -2,9 +2,10 @@
 #include "Generate.h"
 int main()
 {
-    std::cout << "Platform generation test\n";
-
-    generation levelGen(20, 10);
+    int seed = time(0);
+    std::cout << "Platform generation test\n Input seed: ";
+    std::cin >> seed;
+    generation levelGen(seed, 10);
     levelGen.start(1);
     std::vector<platform*> platforms = levelGen.getPlatforms();
 
