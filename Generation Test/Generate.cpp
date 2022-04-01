@@ -1,7 +1,7 @@
 #include "Generate.h"
 #include <iostream>
 generation::generation(int seed, int elements)
-	:seed(seed), elements(elements)
+	:seed(seed), elements(elements), pl(nullptr)
 {
 	this->startPlat = new platform({ 0.0f, 0.0f, 0.0f }, 0,0);
 }
@@ -19,18 +19,36 @@ bool generation::start(int selectedDiff)
 {
 	srand(this->seed);
 	float xPos = 0;
-	int xofMin = 5;
 	float yPos = 0;
-	int stepMax = 10*selectedDiff;
+	float zPos = 0;
+	float dxPos = 0; 
+	float dyPos = 0; 
+	float dzPos = 0;
+	int stepMax = pl->getJumpDistance();
+	int stepMin = pl->getJumpDistance() / 10 * selectedDiff;
 	platform* current = startPlat;
-	platform* newPlat;
+	platform* newPlat = nullptr;
 	for (int i = 0; i < this->elements; i++) {
-		xPos +=  xofMin + (std::rand() % (stepMax - xofMin +1));
-		yPos += rand() % stepMax;
-		newPlat = new platform({ xPos, yPos, 0.0f }, 0, 1);
-		current->next = newPlat;
-		this->anchors.push_back(current);
-		current = newPlat;
+		dxPos = stepMin + (rand() % (stepMax - stepMin + 1));
+		dyPos = (rand() % (2 * stepMax + 1)) - stepMax;
+		dzPos = (rand() % (2 * stepMax + 1)) - stepMax;
+		xPos += dxPos;
+		yPos += dyPos;
+		zPos += dzPos;
+		if (this->pl->isJumpPossible({xPos, yPos, zPos}) ){
+			newPlat = new platform({ xPos, yPos, zPos }, 0, 1);
+			pl->moveto(newPlat->getPos());
+			current->next = newPlat;
+			this->anchors.push_back(current);
+			current = newPlat;
+		}
+		else {
+			i -= 1; 
+			xPos -= dxPos;
+			yPos -= dyPos;
+			zPos -= dzPos;
+			std::cout << "Jump not possible\n";
+		}
 	}
 	this->anchors.push_back(newPlat);
 	return true;
@@ -39,5 +57,10 @@ bool generation::start(int selectedDiff)
 std::vector<platform*> generation::getPlatforms()
 {
 	return this->anchors;
+}
+
+void generation::assignPlayer(player* player)
+{
+	this->pl = player;
 }
 
