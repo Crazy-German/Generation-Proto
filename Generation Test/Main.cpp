@@ -6,7 +6,7 @@ int main()
     std::cout << "Platform generation test\n Input seed: ";
     std::cin >> seed;
     player* pl = new player();
-    generation levelGen(seed, 10);
+    generation levelGen(seed, 20);
     levelGen.assignPlayer(pl);
     levelGen.start(1);
     std::vector<platform*> platforms = levelGen.getPlatforms();

@@ -26,6 +26,7 @@ bool generation::start(int selectedDiff)
 	float dzPos = 0;
 	int stepMax = pl->getJumpDistance();
 	int stepMin = pl->getJumpDistance() / 10 * selectedDiff;
+	int stepMaxZ = pl->jumpHeight();
 	platform* current = startPlat;
 	platform* newPlat = nullptr;
 	for (int i = 0; i < this->elements; i++) {
