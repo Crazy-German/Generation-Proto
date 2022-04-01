@@ -11,11 +11,7 @@ int main()
     for (int i = 0; i < platforms.size(); i++) {
         std::cout << i << " platform.\nXPos: " << platforms[i].get()->getPos().at(0) << " YPos: " << platforms[i].get()->getPos().at(1) << "\n";
     }
-
-
-    for (int i = 0; i < platforms.size(); i++) {
-        platforms[i].reset();
-    }
+    std::vector<std::shared_ptr<platform>> test = std::move(platforms);
     platforms.clear();
     return 0;
 }

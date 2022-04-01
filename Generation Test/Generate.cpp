@@ -8,14 +8,14 @@ generation::generation(int seed, int elements)
 
 generation::~generation()
 {
-	this->startPlat.reset();
+	/*this->startPlat.reset();
 	for (int i = 0; i < anchors.size(); i++) {
 		std::cout << anchors.at(i).use_count() << "\n";
 		//anchors.at(i).get()->~platform();
 		anchors.at(i).get()->next.reset();
 		anchors.at(i).reset();
 		int h = 4;
-	}
+	}*/
 	anchors.clear();
 }
 
@@ -32,7 +32,7 @@ bool generation::start(int selectedDiff)
 		xPos +=  xofMin + (std::rand() % (stepMax - xofMin +1));
 		yPos += rand() % stepMax;
 		newPlat.reset(new platform({ xPos, yPos, 0.0f }, 0, 1));
-		current.get()->next.reset(newPlat.get());
+		current.get()->next = newPlat;
 		this->anchors.push_back(current);
 		current = newPlat;
 	}
