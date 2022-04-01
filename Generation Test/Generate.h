@@ -1,5 +1,6 @@
 #pragma once
 #include "player.h"
+#include "Platform.h"
 #include <random>
 
 class generation {

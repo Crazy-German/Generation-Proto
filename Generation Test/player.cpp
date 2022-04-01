@@ -11,11 +11,18 @@ void player::moveto(const std::vector<float>& pos)
 		this->pos[i] = pos[i];
 	}
 }
-
 float player::getJumpDistance()
 {
 	float vel = sqrtf(powf(this->speed, 2.0) + powf(this->jumpvel, 2.0f));
 	float t = (vel * sin(this->launchangle) + sqrtf(powf(vel * sinf(this->launchangle), 2.0f) + 2 * this->gravity * this->pos[2])) / this->gravity;
+
+	return this->speed * t;
+}
+
+float player::getJumpDistance(float height)
+{
+	float vel = sqrtf(powf(this->speed, 2.0) + powf(this->jumpvel, 2.0f));
+	float t = (vel * sin(this->launchangle) + sqrtf(powf(vel * sinf(this->launchangle), 2.0f) + 2 * this->gravity * (this->pos[2]-height))) / this->gravity;
 
 	return this->speed * t;
 }
@@ -30,7 +37,7 @@ bool player::isJumpPossible(std::vector<float> position)
 {
 	float jumpheight = jumpHeight();
 	float heightDif = jumpheight - position.at(2);
-	float jumpDist = getJumpDistance();
+	float jumpDist = getJumpDistance(position.at(2));
 	float distanceDif = jumpDist - this->distance(position);
 	/*if (heightDif <= 0) {
 		plat->move(0, 0, heightDif);
