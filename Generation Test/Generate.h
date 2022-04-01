@@ -6,11 +6,11 @@ class generation {
 private:
 	int seed;
 	int elements;
-	std::shared_ptr<platform> startPlat;
-	std::vector<std::shared_ptr<platform>> anchors;
+	platform* startPlat;
+	std::vector<platform*> anchors;
 public:
 	generation(int seed, int elements);
 	~generation();
 	bool start(int selectedDiff);
-	std::vector<std::shared_ptr<platform>> getPlatforms();
+	std::vector<platform*> getPlatforms();
 };

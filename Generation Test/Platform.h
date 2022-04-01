@@ -14,5 +14,5 @@ public:
 	void setPosition(float x, float y, float z);
 	std::vector<float> getPos();
 	float distance(std::vector<float> &position);
-	std::shared_ptr<platform> next;
+	platform* next;
 };
