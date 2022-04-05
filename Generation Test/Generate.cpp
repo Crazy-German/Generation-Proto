@@ -21,24 +21,33 @@ bool generation::start(int selectedDiff)
 	srand(this->seed);
 	Vector3 dVect = Vector3();
 	Vector3 position = this->startPlat->getPos();
-	int stepMax = pl->getJumpDistance();
+	float stepMax = pl->getJumpDistance();
 	float stepMin = pl->getJumpDistance() / 2 * selectedDiff;
+	float distance = 0.0f;
 	float stepMaxZ = pl->jumpHeight();
 	platform* current = startPlat;
 	platform* newPlat = nullptr;
 	for (int i = 0; i < this->elements; i++) {
-		
-		dVect.z = (rand() % (2 * stepMax)) - stepMax - 1;
+		dVect.z = randF(-stepMaxZ, stepMaxZ);
+		//dVect.z = (rand() % (2 * stepMax)) - stepMax - 1;
 		dVect.z = fmin(dVect.z, stepMaxZ);
 		position.z += dVect.z;
 		// Using the height the new platform to determine max distance
 		stepMax = pl->getJumpDistance(position.z);
-		stepMin = pl->getJumpDistance(position.z) / 10 * selectedDiff;
+		stepMin = stepMax / 2.0f * selectedDiff;
 		// Generating x and y pos
-		dVect.x = (rand() % (stepMax - (int)stepMin + 1));
-		dVect.y = (rand() % (2 * stepMax)) - stepMax - 1;
+		dVect.x = randF(0,1);
+		dVect.y = randF(0,1);
+		dVect.normalizeXY();
+		distance =  randF(stepMin, stepMax  - 3);
+		dVect.x *= distance;
+		dVect.y *= distance;
+
 		position.x += dVect.x;
 		position.y += dVect.y;
+
+		//Get random value for Z that is within possible jump
+
 		
 		if (this->pl->isJumpPossible(position) &&
 			dVect.magnitude() > stepMin &&
@@ -49,7 +58,6 @@ bool generation::start(int selectedDiff)
 			current->next = newPlat;
 			this->anchors.push_back(current);
 			current = newPlat;
-			std::cout << "Hello\n";
 		}
 		else {
 			i -= 1; 
@@ -73,9 +81,10 @@ void generation::assignPlayer(player* player)
 
 float generation::randF(float min, float max)
 {
-	float random = ((float)rand()) / (float)RAND_MAX;
-	float diff = max - min;
-	float r = random * diff;
-	return min + r;
+	float random = min + ((float)rand()) / ((float)RAND_MAX/(max-min));
+	//std::cout << "random float " << random << std::endl;
+	//float diff = max - min;
+	//float r = random * diff;
+	return random;
 }
 

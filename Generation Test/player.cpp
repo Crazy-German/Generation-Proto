@@ -57,5 +57,5 @@ bool player::isJumpPossible(Vector3 position)
 
 float player::distance(Vector3& position)
 {
-	return sqrtf(pow(this->pos.x - position.x, 2.0) + pow(this->pos.y - position.y, 2.0) + pow(this->pos.z - position.z, 2.0));
+	return sqrtf(pow(this->pos.x - position.x, 2.0) + pow(this->pos.y - position.y, 2.0));
 }

@@ -40,7 +40,7 @@
                 //"${file}",
                 "${workspaceFolder}/*.cpp",
                 "-o",
-                "${fileDirname}/${fileBasenameNoExtension}"
+                "gen_test"
             ],
             "options": {
                 "cwd": "${workspaceFolder}"

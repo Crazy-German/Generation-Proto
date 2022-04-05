@@ -14,6 +14,11 @@ struct Vector2 {
 		y = yPos;
 	}
 
+	void normalizeXY(){
+		x = x/length();
+		y = y/length();
+	}
+
 	float length() {
 		return sqrtf(x * x + y * y);
 	}
@@ -35,6 +40,11 @@ struct Vector3 {
 		z = zPos;
 	}
 	
+	void normalizeXY(){
+		x = x/magnitude();
+		y = y/magnitude();
+	}
+
 	float magnitude() {
 		return sqrtf(x * x + y * y);
 	}
