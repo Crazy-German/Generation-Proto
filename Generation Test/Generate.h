@@ -16,4 +16,5 @@ public:
 	bool start(int selectedDiff);
 	std::vector<platform*> getPlatforms();
 	void assignPlayer(player* player);
+	float randF(float min, float max);
 };

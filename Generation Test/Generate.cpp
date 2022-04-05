@@ -19,16 +19,16 @@ generation::~generation()
 bool generation::start(int selectedDiff)
 {
 	srand(this->seed);
-	Vector3 dVect;
-	Vector3 position;
+	Vector3 dVect = Vector3();
+	Vector3 position = this->startPlat->getPos();
 	int stepMax = pl->getJumpDistance();
 	float stepMin = pl->getJumpDistance() / 2 * selectedDiff;
-	int stepMaxZ = pl->jumpHeight();
+	float stepMaxZ = pl->jumpHeight();
 	platform* current = startPlat;
 	platform* newPlat = nullptr;
 	for (int i = 0; i < this->elements; i++) {
 		
-		dVect.z = (rand() % (2 * stepMax) )- stepMax - 1;
+		dVect.z = (rand() % (2 * stepMax)) - stepMax - 1;
 		dVect.z = fmin(dVect.z, stepMaxZ);
 		position.z += dVect.z;
 		// Using the height the new platform to determine max distance
@@ -39,8 +39,8 @@ bool generation::start(int selectedDiff)
 		dVect.y = (rand() % (2 * stepMax)) - stepMax - 1;
 		position.x += dVect.x;
 		position.y += dVect.y;
-
-		if (
+		
+		if (this->pl->isJumpPossible(position) &&
 			dVect.magnitude() > stepMin &&
 			dVect.magnitude() < stepMax)
 		{
@@ -53,9 +53,7 @@ bool generation::start(int selectedDiff)
 		}
 		else {
 			i -= 1; 
-			position.x -= dVect.x;
-			position.y -= dVect.y;
-			position.z -= dVect.z;
+			position -= dVect;
 			std::cout << "Jump not possible\n";
 		}
 	}
@@ -71,5 +69,13 @@ std::vector<platform*> generation::getPlatforms()
 void generation::assignPlayer(player* player)
 {
 	this->pl = player;
+}
+
+float generation::randF(float min, float max)
+{
+	float random = ((float)rand()) / (float)RAND_MAX;
+	float diff = max - min;
+	float r = random * diff;
+	return min + r;
 }
 

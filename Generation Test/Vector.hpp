@@ -34,12 +34,19 @@ struct Vector3 {
 		y = yPos;
 		z = zPos;
 	}
-
+	
 	float magnitude() {
 		return sqrtf(x * x + y * y);
 	}
 
 	float length() {
 		return sqrtf(x * x + y * y + z * z);
+	}
+
+	Vector3& operator -=(const Vector3& other) {
+		x -= other.x;
+		y -= other.y;
+		z -= other.z;
+		return *this;
 	}
 };
