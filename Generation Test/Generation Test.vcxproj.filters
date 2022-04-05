@@ -30,7 +30,7 @@
     <ClCompile Include="player.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Vector.cpp">
+    <ClCompile Include="Vector.hpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
   </ItemGroup>

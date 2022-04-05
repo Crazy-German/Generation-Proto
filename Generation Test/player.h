@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 #include <math.h>
+#include "Vector.hpp"
 class player {
 private:
 	float jumpvel;

@@ -1,5 +1,6 @@
 #include "Generate.h"
 #include <iostream>
+
 generation::generation(int seed, int elements)
 	:seed(seed), elements(elements), pl(nullptr)
 {
@@ -48,7 +49,7 @@ bool generation::start(int selectedDiff)
 		stepMax = pl->getJumpDistance(zPos);
 		stepMin = pl->getJumpDistance(zPos) / 10 * selectedDiff;
 		// Generating x and y pos
-		dxPos = (rand() % (stepMax - stepMin + 1));
+		dxPos = (rand() % (stepMax - (int)stepMin + 1));
 		dyPos = (rand() % (2 * stepMax)) - stepMax - 1;
 		xPos += dxPos;
 		yPos += dyPos;
