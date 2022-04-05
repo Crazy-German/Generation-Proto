@@ -40,7 +40,7 @@ bool generation::start(int selectedDiff)
 		position.x += dVect.x;
 		position.y += dVect.y;
 
-		if (this->pl->isJumpPossible(position) &&
+		if (
 			dVect.magnitude() > stepMin &&
 			dVect.magnitude() < stepMax)
 		{
@@ -49,6 +49,7 @@ bool generation::start(int selectedDiff)
 			current->next = newPlat;
 			this->anchors.push_back(current);
 			current = newPlat;
+			std::cout << "Hello\n";
 		}
 		else {
 			i -= 1; 

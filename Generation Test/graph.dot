@@ -5,102 +5,102 @@ pos = "0,0!"
 ]
 Platform_1 [
 label = P_1
-pos = "-30,100!"
+pos = "-70,180!"
 ]
 Platform_0 -> Platform_1
 Platform_2 [
 label = P_2
-pos = "50,220!"
+pos = "-170,250!"
 ]
 Platform_1 -> Platform_2
 Platform_3 [
 label = P_3
-pos = "-40,340!"
+pos = "-110,400!"
 ]
 Platform_2 -> Platform_3
 Platform_4 [
 label = P_4
-pos = "50,440!"
+pos = "-220,430!"
 ]
 Platform_3 -> Platform_4
 Platform_5 [
 label = P_5
-pos = "100,580!"
+pos = "-140,470!"
 ]
 Platform_4 -> Platform_5
 Platform_6 [
 label = P_6
-pos = "170,690!"
+pos = "-150,560!"
 ]
 Platform_5 -> Platform_6
 Platform_7 [
 label = P_7
-pos = "290,820!"
+pos = "-200,620!"
 ]
 Platform_6 -> Platform_7
 Platform_8 [
 label = P_8
-pos = "390,940!"
+pos = "-160,700!"
 ]
 Platform_7 -> Platform_8
 Platform_9 [
 label = P_9
-pos = "430,1060!"
+pos = "-90,790!"
 ]
 Platform_8 -> Platform_9
 Platform_10 [
 label = P_10
-pos = "420,1170!"
+pos = "-180,920!"
 ]
 Platform_9 -> Platform_10
 Platform_11 [
 label = P_11
-pos = "450,1210!"
+pos = "-150,1110!"
 ]
 Platform_10 -> Platform_11
 Platform_12 [
 label = P_12
-pos = "470,1330!"
+pos = "-220,1180!"
 ]
 Platform_11 -> Platform_12
 Platform_13 [
 label = P_13
-pos = "390,1490!"
+pos = "-100,1270!"
 ]
 Platform_12 -> Platform_13
 Platform_14 [
 label = P_14
-pos = "280,1520!"
+pos = "40,1320!"
 ]
 Platform_13 -> Platform_14
 Platform_15 [
 label = P_15
-pos = "270,1540!"
+pos = "50,1360!"
 ]
 Platform_14 -> Platform_15
 Platform_16 [
 label = P_16
-pos = "210,1610!"
+pos = "170,1420!"
 ]
 Platform_15 -> Platform_16
 Platform_17 [
 label = P_17
-pos = "290,1720!"
+pos = "260,1560!"
 ]
 Platform_16 -> Platform_17
 Platform_18 [
 label = P_18
-pos = "280,1870!"
+pos = "130,1710!"
 ]
 Platform_17 -> Platform_18
 Platform_19 [
 label = P_19
-pos = "350,2030!"
+pos = "240,1770!"
 ]
 Platform_18 -> Platform_19
 Platform_20 [
 label = P_20
-pos = "320,2210!"
+pos = "160,1800!"
 ]
 Platform_19 -> Platform_20
 }

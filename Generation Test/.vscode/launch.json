@@ -11,7 +11,8 @@
             "name": "Debug - ",
             "program": "${workspaceFolder}/gen_test",
             "cwd": "${workspaceFolder}",
-            //"preLaunchTask": "make build",
+            //"preLaunchTask": "compile",
+            "preLaunchTask": "clang++ build active file",
             "postDebugTask": "Gen_graph",
 			"expressions": "native",
             
