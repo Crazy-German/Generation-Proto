@@ -8,13 +8,13 @@ private:
 	float speed;
 	float launchangle;
 	float gravity;
-	std::vector<float> pos;
+	Vector3 pos;
 public:
 	player();
-	void moveto(const std::vector<float>& pos );
+	void moveto(const Vector3& pos );
 	float getJumpDistance();
 	float getJumpDistance(float height);
 	float jumpHeight();
-	bool isJumpPossible(std::vector<float> position);
-	float distance(std::vector<float>& position);
+	bool isJumpPossible(Vector3 position);
+	float distance(Vector3& position);
 };

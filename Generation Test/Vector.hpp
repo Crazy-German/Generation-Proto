@@ -5,8 +5,17 @@ struct Vector2 {
 	float x;
 	float y;
 
+	Vector2(){
+		x = 0.0f;
+		y = 0.0f;
+	}
+	Vector2(float xPos, float yPos) {
+		x = xPos;
+		y = yPos;
+	}
+
 	float length() {
-		return sqrt(x * x + y * y);
+		return sqrtf(x * x + y * y);
 	}
 };
 
@@ -15,7 +24,22 @@ struct Vector3 {
 	float y;
 	float z;
 
+	Vector3() {
+		x = 0.0f;
+		y = 0.0f;
+		z = 0.0f;
+	}
+	Vector3(float xPos, float yPos, float zPos) {
+		x = xPos;
+		y = yPos;
+		z = zPos;
+	}
+
+	float magnitude() {
+		return sqrtf(x * x + y * y);
+	}
+
 	float length() {
-		return sqrt(x * x + y * y + z * z);
+		return sqrtf(x * x + y * y + z * z);
 	}
 };

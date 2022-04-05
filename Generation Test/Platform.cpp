@@ -20,8 +20,7 @@ platform::platform(Vector3 pos, int obstacles, int difficluty)
 
 platform::~platform()
 {
-   //this->next.reset();
-   
+
 }
 
 void platform::setPosition(float x, float y, float z)
@@ -46,6 +45,11 @@ void platform::move(float xOfset, float yOfset, float zOfset)
 Vector3 platform::getPos()
 {
     return this->pos;
+}
+
+float platform::distance(Vector3 position)
+{
+    return sqrtf(pow(this->pos.x - position.x, 2) + pow(this->pos.y - position.y, 2) + pow(this->pos.z - position.z, 2));
 }
 
 float platform::distance(std::vector<float>& position)

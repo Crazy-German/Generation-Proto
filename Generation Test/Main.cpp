@@ -20,12 +20,12 @@ int main()
     int abs_X = 0;
     int abs_Y = 0;
     for (int i = 0; i < platforms.size(); i++) {
-        std::cout << i << " platform.\nXPos: " << platforms[i]->getPos().at(0) << " YPos: " << platforms[i]->getPos().at(1) << " ZPos: " << platforms[i]->getPos().at(2) << "\n";
+        std::cout << i << " platform.\nXPos: " << platforms[i]->getPos().x << " YPos: " << platforms[i]->getPos().y << " ZPos: " << platforms[i]->getPos().z << "\n";
         //abs_X += platforms[i]->getPos().at(0) ;
         //abs_Y += platforms[i]->getPos().at(1) ;
 
-        abs_X = platforms[i]->getPos().at(1);
-        abs_Y = platforms[i]->getPos().at(0);
+        abs_X = platforms[i]->getPos().y;
+        abs_Y = platforms[i]->getPos().x;
 
         out << "Platform_"<< i <<" [\n";
         out << "label = P_"<< i << "\n";

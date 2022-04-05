@@ -5,16 +5,16 @@ player::player()
 {
 }
 
-void player::moveto(const std::vector<float>& pos)
+void player::moveto(const Vector3& pos)
 {
-	for (int i = 0; i < this->pos.size(); i++) {
-		this->pos[i] = pos[i];
-	}
+	this->pos.x = pos.x;
+	this->pos.y = pos.y;
+	this->pos.z = pos.z;
 }
 float player::getJumpDistance()
 {
 	float vel = sqrtf(powf(this->speed, 2.0) + powf(this->jumpvel, 2.0f));
-	float t = (vel * sin(this->launchangle) + sqrtf(powf(vel * sinf(this->launchangle), 2.0f) + 2 * this->gravity * this->pos[2])) / this->gravity;
+	float t = (vel * sin(this->launchangle) + sqrtf(powf(vel * sinf(this->launchangle), 2.0f) + 2 * this->gravity * this->pos.z)) / this->gravity;
 
 	return this->speed * t;
 }
@@ -22,7 +22,7 @@ float player::getJumpDistance()
 float player::getJumpDistance(float height)
 {
 	float vel = sqrtf(powf(this->speed, 2.0) + powf(this->jumpvel, 2.0f));
-	float t = (vel * sin(this->launchangle) + sqrtf(powf(vel * sinf(this->launchangle), 2.0f) + 2 * this->gravity * (this->pos[2]-height))) / this->gravity;
+	float t = (vel * sin(this->launchangle) + sqrtf(powf(vel * sinf(this->launchangle), 2.0f) + 2 * this->gravity * (this->pos.z-height))) / this->gravity;
 
 	return this->speed * t;
 }
@@ -30,14 +30,14 @@ float player::getJumpDistance(float height)
 float player::jumpHeight()
 {
 	float vel = sqrtf(powf(this->speed, 2.0) + powf(this->jumpvel, 2.0f));
-	return this->pos[2] + (powf(vel, 2.0f) * powf(sin(this->launchangle),2.0f) / (2 * this->gravity));
+	return this->pos.z + (powf(vel, 2.0f) * powf(sin(this->launchangle),2.0f) / (2 * this->gravity));
 }
 
-bool player::isJumpPossible(std::vector<float> position)
+bool player::isJumpPossible(Vector3 position)
 {
 	float jumpheight = jumpHeight();
-	float heightDif = jumpheight - position.at(2);
-	float jumpDist = getJumpDistance(position.at(2));
+	float heightDif = jumpheight - position.z;
+	float jumpDist = getJumpDistance(position.z);
 	float distanceDif = jumpDist - this->distance(position);
 	/*if (heightDif <= 0) {
 		plat->move(0, 0, heightDif);
@@ -55,7 +55,7 @@ bool player::isJumpPossible(std::vector<float> position)
 	return true;
 }
 
-float player::distance(std::vector<float>& position)
+float player::distance(Vector3& position)
 {
-	return sqrtf(pow(this->pos[0] - position[0], 2.0) + pow(this->pos[1] - position[1], 2.0) + pow(this->pos[2] - position[2], 2.0));
+	return sqrtf(pow(this->pos.x - position.x, 2.0) + pow(this->pos.y - position.y, 2.0) + pow(this->pos.z - position.z, 2.0));
 }

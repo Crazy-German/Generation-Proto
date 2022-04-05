@@ -4,7 +4,7 @@
 generation::generation(int seed, int elements)
 	:seed(seed), elements(elements), pl(nullptr)
 {
-	this->startPlat = new platform({ 0.0f, 0.0f, 0.0f }, 0,0);
+	this->startPlat = new platform(Vector3(), 0, 0);
 }
 
 generation::~generation()
@@ -16,25 +16,11 @@ generation::~generation()
 	anchors.clear();
 }
 
-struct Vector2
-{
-	float x;
-	float y;
-	float Magnitude()
-	{
-		return sqrt(x * x + y * y);
-	}
-};
-
 bool generation::start(int selectedDiff)
 {
 	srand(this->seed);
-	float xPos = 0;
-	float yPos = 0;
-	float zPos = 0;
-	float dxPos = 0; 
-	float dyPos = 0; 
-	float dzPos = 0;
+	Vector3 dVect;
+	Vector3 position;
 	int stepMax = pl->getJumpDistance();
 	float stepMin = pl->getJumpDistance() / 2 * selectedDiff;
 	int stepMaxZ = pl->jumpHeight();
@@ -42,23 +28,23 @@ bool generation::start(int selectedDiff)
 	platform* newPlat = nullptr;
 	for (int i = 0; i < this->elements; i++) {
 		
-		dzPos = (rand() % (2 * stepMax) )- stepMax - 1;
-		dzPos = fmin(dzPos, stepMaxZ);
-		zPos += dzPos;
+		dVect.z = (rand() % (2 * stepMax) )- stepMax - 1;
+		dVect.z = fmin(dVect.z, stepMaxZ);
+		position.z += dVect.z;
 		// Using the height the new platform to determine max distance
-		stepMax = pl->getJumpDistance(zPos);
-		stepMin = pl->getJumpDistance(zPos) / 10 * selectedDiff;
+		stepMax = pl->getJumpDistance(position.z);
+		stepMin = pl->getJumpDistance(position.z) / 10 * selectedDiff;
 		// Generating x and y pos
-		dxPos = (rand() % (stepMax - (int)stepMin + 1));
-		dyPos = (rand() % (2 * stepMax)) - stepMax - 1;
-		xPos += dxPos;
-		yPos += dyPos;
-		zPos += dzPos;
-		if (this->pl->isJumpPossible({xPos, yPos, zPos}) &&
-			sqrt(dxPos * dxPos + dyPos * dyPos) > stepMin && 
-			sqrt(dxPos * dxPos + dyPos * dyPos) < stepMax)
+		dVect.x = (rand() % (stepMax - (int)stepMin + 1));
+		dVect.y = (rand() % (2 * stepMax)) - stepMax - 1;
+		position.x += dVect.x;
+		position.y += dVect.y;
+
+		if (this->pl->isJumpPossible(position) &&
+			dVect.magnitude() > stepMin &&
+			dVect.magnitude() < stepMax)
 		{
-			newPlat = new platform({ xPos, yPos, zPos }, 0, 1);
+			newPlat = new platform(position, 0, 1);
 			pl->moveto(newPlat->getPos());
 			current->next = newPlat;
 			this->anchors.push_back(current);
@@ -66,9 +52,9 @@ bool generation::start(int selectedDiff)
 		}
 		else {
 			i -= 1; 
-			xPos -= dxPos;
-			yPos -= dyPos;
-			zPos -= dzPos;
+			position.x -= dVect.x;
+			position.y -= dVect.y;
+			position.z -= dVect.z;
 			std::cout << "Jump not possible\n";
 		}
 	}
