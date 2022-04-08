@@ -361,6 +361,10 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+Generation Test/.vscode/tasks
+
+Generation Test/gen_test
+
 *.o
 
 Generation Test/gen_test

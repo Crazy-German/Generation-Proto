@@ -19,7 +19,7 @@
         {
             "type": "shell",
             "label": "make",
-            "command": "wsl.exe make",
+            "command": "make",
             "args": [               
             ],
             
