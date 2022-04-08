@@ -8,162 +8,162 @@ pos = "0,0!"
 ]
 Platform_1 [
 label = "P_1
-X: 8.82761
-Y: 10.2843
-Z: -15.2781"
-pos = "200,160!"
+X: 13.7492
+Y: 9.32129
+Z: -15.6011"
+pos = "180,260!"
 ]
-Platform_0 -> Platform_1[ label = "Dist:20.4234" ]
+Platform_0 -> Platform_1[ label = "Dist:22.7886" ]
 Platform_2 [
 label = "P_2
-X: 9.60362
-Y: 17.5876
-Z: 0.0344954"
-pos = "340,180!"
+X: 23.3171
+Y: 10.8473
+Z: -13.5365"
+pos = "200,460!"
 ]
-Platform_1 -> Platform_2[ label = "Dist:16.9829" ]
+Platform_1 -> Platform_2[ label = "Dist:9.90641" ]
 Platform_3 [
 label = "P_3
-X: 17.6342
-Y: 23.6534
-Z: -6.31259"
-pos = "460,340!"
+X: 36.8451
+Y: 12.3179
+Z: -16.7769"
+pos = "240,720!"
 ]
-Platform_2 -> Platform_3[ label = "Dist:11.8983" ]
+Platform_2 -> Platform_3[ label = "Dist:13.9881" ]
 Platform_4 [
 label = "P_4
-X: 19.4638
-Y: 38.0485
-Z: -17.7193"
-pos = "760,380!"
+X: 39.6476
+Y: 20.8481
+Z: -12.3377"
+pos = "400,780!"
 ]
-Platform_3 -> Platform_4[ label = "Dist:18.4575" ]
+Platform_3 -> Platform_4[ label = "Dist:10.0163" ]
 Platform_5 [
 label = "P_5
-X: 25.3555
-Y: 44.7615
-Z: -3.94471"
-pos = "880,500!"
+X: 43.6687
+Y: 28.5797
+Z: -8.95837"
+pos = "560,860!"
 ]
-Platform_4 -> Platform_5[ label = "Dist:16.417" ]
+Platform_4 -> Platform_5[ label = "Dist:9.347" ]
 Platform_6 [
 label = "P_6
-X: 34.7688
-Y: 44.9768
-Z: -4.25567"
-pos = "880,680!"
+X: 50.192
+Y: 36.4269
+Z: -9.70438"
+pos = "720,1000!"
 ]
-Platform_5 -> Platform_6[ label = "Dist:9.42089" ]
+Platform_5 -> Platform_6[ label = "Dist:10.2317" ]
 Platform_7 [
 label = "P_7
-X: 43.0184
-Y: 58.0403
-Z: -8.08922"
-pos = "1160,860!"
+X: 56.7006
+Y: 50.2427
+Z: -12.9697"
+pos = "1000,1120!"
 ]
-Platform_6 -> Platform_7[ label = "Dist:15.9188" ]
+Platform_6 -> Platform_7[ label = "Dist:15.6173" ]
 Platform_8 [
 label = "P_8
-X: 50.3007
-Y: 61.3632
-Z: 1.55047"
-pos = "1220,1000!"
+X: 65.1644
+Y: 56.8184
+Z: -12.0751"
+pos = "1120,1300!"
 ]
-Platform_7 -> Platform_8[ label = "Dist:12.5298" ]
+Platform_7 -> Platform_8[ label = "Dist:10.7553" ]
 Platform_9 [
 label = "P_9
-X: 62.3146
-Y: 62.5183
-Z: -4.1632"
-pos = "1240,1240!"
+X: 71.7733
+Y: 58.0206
+Z: 2.8494"
+pos = "1160,1420!"
 ]
-Platform_8 -> Platform_9[ label = "Dist:13.3535" ]
+Platform_8 -> Platform_9[ label = "Dist:16.3666" ]
 Platform_10 [
 label = "P_10
-X: 74.1239
-Y: 71.1916
-Z: -6.13675"
-pos = "1420,1480!"
+X: 77.8158
+Y: 66.1586
+Z: -0.444644"
+pos = "1320,1540!"
 ]
-Platform_9 -> Platform_10[ label = "Dist:14.7845" ]
+Platform_9 -> Platform_10[ label = "Dist:10.6578" ]
 Platform_11 [
 label = "P_11
-X: 81.3143
-Y: 75.5498
-Z: 2.91456"
-pos = "1500,1620!"
+X: 90.7851
+Y: 68.2801
+Z: -1.51359"
+pos = "1360,1800!"
 ]
-Platform_10 -> Platform_11[ label = "Dist:12.354" ]
+Platform_10 -> Platform_11[ label = "Dist:13.185" ]
 Platform_12 [
 label = "P_12
-X: 89.1426
-Y: 78.7158
-Z: 9.18307"
-pos = "1560,1780!"
+X: 99.6075
+Y: 70.2234
+Z: 9.47438"
+pos = "1400,1980!"
 ]
-Platform_11 -> Platform_12[ label = "Dist:10.5167" ]
+Platform_11 -> Platform_12[ label = "Dist:14.2249" ]
 Platform_13 [
 label = "P_13
-X: 92.7584
-Y: 84.8366
-Z: 19.7322"
-pos = "1680,1840!"
+X: 110.379
+Y: 75.9516
+Z: -0.70769"
+pos = "1500,2200!"
 ]
-Platform_12 -> Platform_13[ label = "Dist:12.7209" ]
+Platform_12 -> Platform_13[ label = "Dist:15.8906" ]
 Platform_14 [
 label = "P_14
-X: 101.16
-Y: 89.1142
-Z: 31.8768"
-pos = "1780,2020!"
+X: 116.366
+Y: 84.7822
+Z: 5.38737"
+pos = "1680,2320!"
 ]
-Platform_13 -> Platform_14[ label = "Dist:15.3743" ]
+Platform_13 -> Platform_14[ label = "Dist:12.2871" ]
 Platform_15 [
 label = "P_15
-X: 107.306
-Y: 94.0654
-Z: 42.6501"
-pos = "1880,2140!"
+X: 124.151
+Y: 89.4197
+Z: 9.19504"
+pos = "1780,2480!"
 ]
-Platform_14 -> Platform_15[ label = "Dist:13.3552" ]
+Platform_14 -> Platform_15[ label = "Dist:9.82902" ]
 Platform_16 [
 label = "P_16
-X: 116.712
-Y: 94.4113
-Z: 54.9921"
-pos = "1880,2320!"
+X: 132.874
+Y: 98.9513
+Z: 9.57308"
+pos = "1960,2640!"
 ]
-Platform_15 -> Platform_16[ label = "Dist:15.5215" ]
+Platform_15 -> Platform_16[ label = "Dist:12.9262" ]
 Platform_17 [
 label = "P_17
-X: 129.744
-Y: 99.1954
-Z: 53.9787"
-pos = "1980,2580!"
+X: 138.447
+Y: 99.0993
+Z: 24.7439"
+pos = "1980,2760!"
 ]
-Platform_16 -> Platform_17[ label = "Dist:13.9188" ]
+Platform_16 -> Platform_17[ label = "Dist:16.1627" ]
 Platform_18 [
 label = "P_18
-X: 138.042
-Y: 104.689
-Z: 53.0065"
-pos = "2080,2760!"
+X: 148.1
+Y: 109.326
+Z: 18.874"
+pos = "2180,2960!"
 ]
-Platform_17 -> Platform_18[ label = "Dist:9.9988" ]
+Platform_17 -> Platform_18[ label = "Dist:15.2389" ]
 Platform_19 [
 label = "P_19
-X: 139.289
-Y: 116.519
-Z: 43.9073"
-pos = "2320,2780!"
+X: 161.133
+Y: 115.372
+Z: 12.87"
+pos = "2300,3220!"
 ]
-Platform_18 -> Platform_19[ label = "Dist:14.977" ]
+Platform_18 -> Platform_19[ label = "Dist:15.571" ]
 Platform_20 [
 label = "P_20
-X: 151.862
-Y: 117.439
-Z: 31.3583"
-pos = "2340,3020!"
+X: 162.518
+Y: 124.352
+Z: 20.7129"
+pos = "2480,3240!"
 ]
-Platform_19 -> Platform_20[ label = "Dist:17.7875" ]
+Platform_19 -> Platform_20[ label = "Dist:12.0031" ]
 }
