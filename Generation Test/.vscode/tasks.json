@@ -56,7 +56,7 @@
                 "gen_test"
             ],
             "options": {
-                "cwd": "${workspaceFolder}"
+                "cwd": "${workspaceFolder}" 
             },
             //"problemMatcher": [
             //    "$gcc"

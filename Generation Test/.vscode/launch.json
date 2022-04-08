@@ -12,7 +12,7 @@
             "program": "${workspaceFolder}/gen_test",
             "cwd": "${workspaceFolder}",
             //"preLaunchTask": "compile",
-            //"preLaunchTask": "clang++ build active file",
+            //"preLaunchTask": "clang++ build active file", 
             "preLaunchTask": "make",
             "postDebugTask": "Gen_graph",
 			"expressions": "native",
