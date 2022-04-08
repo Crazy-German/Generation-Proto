@@ -18,6 +18,19 @@
         },
         {
             "type": "shell",
+            "label": "make",
+            "command": "wsl.exe make",
+            "args": [               
+            ],
+            
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "run the make file"
+        },
+        {
+            "type": "shell",
             "label": "compile",
             "command": "clang++ -w -std=c++17 *.cpp -ogen_test ",
             "args": [               

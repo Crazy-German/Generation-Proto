@@ -7,7 +7,7 @@ player::player()
 
 void player::moveto(const Vector3& pos)
 {
-	this->pos.x = pos.x;
+	this->pos.x = pos.x;	
 	this->pos.y = pos.y;
 	this->pos.z = pos.z;
 }

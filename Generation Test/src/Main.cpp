@@ -13,7 +13,7 @@ int main()
     levelGen.assignPlayer(pl);
     levelGen.start(1);
     std::vector<platform*> platforms = levelGen.getPlatforms();
-
+    int f = 4; 
     std::ofstream out("graph.dot");
     out << "digraph {\n" ;
     int scale = 20; 
