@@ -76,12 +76,16 @@ gen_cdb_everyWarn: $(OBJ)
 
 
 clean:		
-		rm -f gen_test
-		rm -f .cache/clangd/index/*.idx
-		rm -f src/*.o
+	del gen_test
+	del _gen_test.o
+	del *.ilk
+	del *.pdb	
+	del src\*.o
+
+#del .cache\clangd\index\*.idx	
 		
 clean_all: clean
-	rm -f *.dot *.json CFGs.pdf tree.pdf
+	del -f *.dot *.json CFGs.pdf tree.pdf
 	
 	
 
