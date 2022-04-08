@@ -368,3 +368,5 @@ Generation Test/gen_test
 *.o
 
 Generation Test/gen_test
+
+Generation Test/junk/
